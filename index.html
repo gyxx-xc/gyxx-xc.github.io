@@ -27,27 +27,29 @@
 			-webkit-border-radius: 25px / 25px;
 			-moz-border-radius: 25px / 25px;
 			border-radius: 25px / 25px;
+			transition:top 0.5s;
 		}
 		#o1{
 			position: absolute;
-			top: 250px;
+			top: -9999px;
 			left: -20px;
 		}
 		#o2{
 			position: absolute;
-			top: 250px;
+			top: -9999px;
 			left: 40px;
 		}
 		#o3{
 			position: absolute;
-			top: 250px;
+			top: -9999px;
 			left: 100px;
 		}
 	</style>
 </head>
 <body>
 	<div>
-		<img herf="施工中" src="construction.jpg">
+		<img herf="施工中" src="construction.jpg" onload="move()">
+		<!-- <img herf="施工中" src="https://gyxx-xc.github.io/construction.png" onload="move()"> -->
 		<div class="oval" id="o1"></div>
 		<div class="oval" id="o2"></div>
 		<div class="oval" id="o3"></div>
@@ -58,8 +60,13 @@ function move() {
 	var elem = document.getElementById("o1");
 	var elem2 = document.getElementById("o2");
 	var elem3 = document.getElementById("o3");
+	elem.style.top = "250px";
+	// elem3.style.top = "250px";
 	var rd = 10;
 	var id = setInterval(frame, 10);
+	var b1 = true, b2 = false;
+	var t1 = setTimeout(function(){elem2.style.top = "250px";},1000);
+	var t1 = setTimeout(function(){elem3.style.top = "250px";},2000);
 	function frame() {
 		if (rd >= 360) {
 			rd = 1;
@@ -71,7 +78,7 @@ function move() {
 		}
 	}
 }
-move();
+// move();
 	</script>
 </body>
 </html>
