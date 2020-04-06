@@ -1,1 +1,77 @@
-Hello World
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Under construction!</title>
+	<style type="text/css">
+		body {
+			background-color: rgb(187,179,158);
+		}
+		div {
+			margin: 0px;
+			position: absolute;
+			left: 50%;
+			top: 0px;
+		}
+		img {
+			margin: 0px;
+			width: 800px;
+			height: 450px;
+			position: relative;
+			left: -50%;
+			/*transition:width 2/s, height 2s;*/
+		}
+		.oval {
+			width: 50px;
+			height: 50px;
+			background-image: linear-gradient(#030900, #bbb39e, #f84413, #bbb39e, #000000);
+			-webkit-border-radius: 25px / 25px;
+			-moz-border-radius: 25px / 25px;
+			border-radius: 25px / 25px;
+		}
+		#o1{
+			position: absolute;
+			top: 250px;
+			left: -20px;
+		}
+		#o2{
+			position: absolute;
+			top: 250px;
+			left: 40px;
+		}
+		#o3{
+			position: absolute;
+			top: 250px;
+			left: 100px;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<img src="construction.png">
+		<div class="oval" id="o1"></div>
+		<div class="oval" id="o2"></div>
+		<div class="oval" id="o3"></div>
+	</div>
+
+	<script type="text/javascript">
+function move() {
+	var elem = document.getElementById("o1");
+	var elem2 = document.getElementById("o2");
+	var elem3 = document.getElementById("o3");
+	var rd = 10;
+	var id = setInterval(frame, 10);
+	function frame() {
+		if (rd >= 360) {
+			rd = 1;
+		} else {
+			rd ++; 
+			elem.style.transform = "rotate(" + rd + "deg)";
+			elem2.style.transform = "rotate(" + (rd + 50) + "deg)";
+			elem3.style.transform = "rotate(" + (rd + 20) + "deg)";
+		}
+	}
+}
+move();
+	</script>
+</body>
+</html>
