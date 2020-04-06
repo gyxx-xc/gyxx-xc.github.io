@@ -27,7 +27,7 @@
 			-webkit-border-radius: 25px / 25px;
 			-moz-border-radius: 25px / 25px;
 			border-radius: 25px / 25px;
-			transition:top 0.5s;
+			transition:top 0.5s, bottom 0.1s;
 		}
 		#o1{
 			position: absolute;
@@ -57,25 +57,41 @@
 
 	<script type="text/javascript">
 function move() {
-	var elem = document.getElementById("o1");
-	var elem2 = document.getElementById("o2");
-	var elem3 = document.getElementById("o3");
-	elem.style.top = "250px";
-	// elem3.style.top = "250px";
+	var elem = [];
+	elem[0] = document.getElementById("o1");
+	elem[1] = document.getElementById("o2");
+	elem[2] = document.getElementById("o3");
+	elem[0].style.top = "250px";
+	// elem[]3.style.top = "250px";
 	var rd = 10;
 	var id = setInterval(frame, 10);
-	var b1 = true, b2 = false;
-	var t1 = setTimeout(function(){elem2.style.top = "250px";},1000);
-	var t1 = setTimeout(function(){elem3.style.top = "250px";},2000);
+	var t1 = setTimeout(function(){elem[1].style.top = "250px";},500);
+	var t1 = setTimeout(function(){elem[2].style.top = "250px";},1000);
+
+	var t1 = setTimeout(function(){var idp1 = setInterval(jup1, 500);},1000);
+	var t1 = setTimeout(function(){var idp2 = setInterval(jup2, 500);},1100);
+	
+	// var b1 = true, b2 = false;
 	function frame() {
 		if (rd >= 360) {
 			rd = 1;
 		} else {
 			rd ++; 
-			elem.style.transform = "rotate(" + rd + "deg)";
-			elem2.style.transform = "rotate(" + (rd + 50) + "deg)";
-			elem3.style.transform = "rotate(" + (rd + 20) + "deg)";
+			elem[0].style.transform = "rotate(" + rd + "deg)";
+			elem[1].style.transform = "rotate(" + (rd + 50) + "deg)";
+			elem[2].style.transform = "rotate(" + (rd + 20) + "deg)";
 		}
+	}
+	var cj1 = 2, cj2 = 2;
+	function jup1() {
+		if(cj1 >= 3) cj1 = 0;
+		elem[cj1].style.top = "150px";
+		cj1 ++;
+	}
+	function jup2() {
+		if(cj2 >= 3) cj2 = 0;
+		elem[cj2].style.top = "250px";
+		cj2 ++;
 	}
 }
 // move();
